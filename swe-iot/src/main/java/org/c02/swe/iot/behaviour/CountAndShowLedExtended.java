@@ -11,8 +11,9 @@ import org.c02.swe.iot.cloud.api.ParticleApi;
 
 public class CountAndShowLedExtended extends AbstractBehaviour {
 
-	public CountAndShowLedExtended(IButton buttonInstance) {
+	public CountAndShowLedExtended(Button buttonInstance) {
 		super(buttonInstance);
+                bt=buttonInstance;
 	}
 
 	private static Button bt;
@@ -20,7 +21,8 @@ public class CountAndShowLedExtended extends AbstractBehaviour {
 	int buttonOldPos = 0;
 	int counter = 0;
 	int rgb = 0;
-	static boolean run = false;
+	public static boolean run = false;
+        public boolean start = false;
 
 	private void startup() {
 		bt.resetButtonClickCounters();
@@ -35,10 +37,11 @@ public class CountAndShowLedExtended extends AbstractBehaviour {
 
 	public int DoubleLighter() {
 		try {
-			if (run) {
+			if (start|| run) {
 				startup();
 			}
-			run = false;
+			start = false;
+                        run = false;
 
 			int pos = CheckCountIfClick();
 			System.out.println(CheckCountIfClick() + "BitCode");
