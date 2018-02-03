@@ -55,7 +55,6 @@ public class ClickSoundDemo {
 	        }
 				
 			}
-			bt.resetButtonClickCounters();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
