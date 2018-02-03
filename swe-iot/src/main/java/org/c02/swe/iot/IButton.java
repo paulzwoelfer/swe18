@@ -9,6 +9,9 @@ public interface IButton {
 		//1     2      3     4
 		North, South, East, West
 	}
+	public enum axes {
+		x, y, z;
+	}
 
 	int getButtonClickCounter(ButtonDirection button);
 	
@@ -19,4 +22,7 @@ public interface IButton {
 	void allLedsOff();
 	
 	void playSound();
+
+	int getDirectionValue(axes direction);
+
 }

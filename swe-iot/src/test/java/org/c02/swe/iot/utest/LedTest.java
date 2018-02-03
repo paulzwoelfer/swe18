@@ -52,5 +52,7 @@ public class LedTest {
 	public void runCountAndShowLed() {
 		countAndShowLed = new CountAndShowLed(buttonInstance);
 		countAndShowLed.run();
+
+		assertEquals("ok", "ok");
 	}
 }

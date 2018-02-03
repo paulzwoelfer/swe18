@@ -95,4 +95,21 @@ public class Button implements IButton {
 			default: return -1;
 		}
 	}
+
+	@Override
+	public int getDirectionValue(axes direction) {
+		int gyro = 0;
+		try {
+			gyro = api.readVariable(direction.name() + "Value");
+			System.out.println(direction.name() + "Value");
+			System.out.println("acceleration: " + gyro);
+
+/*			System.out.println("x: " + api.readVariable("xValue"));
+			System.out.println("y: " + api.readVariable("yValue"));
+			System.out.println("z: " + api.readVariable("zValue"));*/
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return gyro;
+	}
 }

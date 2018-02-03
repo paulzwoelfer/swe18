@@ -41,6 +41,12 @@ public class BehaviourTest {
 			public void playSound() {
 				Assert.fail();
 			}
+
+			@Override
+			public int getDirectionValue(axes direction) {
+				Assert.fail();
+				return 0;
+			}
 		};
 
 		CountAndShowLed beh = new CountAndShowLed(buttonInstance);
