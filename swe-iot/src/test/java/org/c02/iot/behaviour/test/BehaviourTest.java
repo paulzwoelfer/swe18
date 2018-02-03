@@ -45,6 +45,7 @@ public class BehaviourTest {
 
 		CountAndShowLed beh = new CountAndShowLed(buttonInstance);
 
+
 		beh.run();
 	}
 }
