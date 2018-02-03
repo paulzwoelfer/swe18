@@ -21,7 +21,7 @@ public class ButtonCounterDemo {
 
     public static void main(String[] args) {
         Button bt = new Button(api);
-        System.out.println("Nort"+bt.getButtonClickCounter(IButton.ButtonDirection.North));
+        System.out.println("North"+bt.getButtonClickCounter(IButton.ButtonDirection.North));
         System.out.println("South"+bt.getButtonClickCounter(IButton.ButtonDirection.South));
         System.out.println("West"+bt.getButtonClickCounter(IButton.ButtonDirection.West));
         System.out.println("East"+bt.getButtonClickCounter(IButton.ButtonDirection.East));
