@@ -25,36 +25,7 @@ import static org.mockito.Mockito.mock;
 public class ClickSoundTest {
    @Test 
 	public void testResetButtonCount() throws Exception {
-            IButton buttonInstance = new IButton() {
-
-			@Override
-			public int getButtonClickCounter(IButton.ButtonDirection button) {
-				if (button == IButton.ButtonDirection.North)
-					return 5;
-				return 0;
-			}
-
-			@Override
-			public void resetButtonClickCounters() {
-				Assert.fail();
-			}
-
-			@Override
-			public void setLed(int postition, Color color) {
-				Assert.assertEquals(5, postition);
-				Assert.assertEquals(Color.GREEN, color);
-			}
-
-			@Override
-			public void allLedsOff() {
-				Assert.fail();
-			}
-
-			@Override
-			public void playSound() {
-				Assert.fail();
-			}
-		};
+           
             
             
             IParticleApi api = new IParticleApi() {
