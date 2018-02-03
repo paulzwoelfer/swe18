@@ -28,7 +28,18 @@ public class Button implements IButton {
 
 	public void setLed(int postition, Color color) {
 		try {
-			api.callMethod("led", postition + color.toString());
+
+			int r = color.getRed();
+			String R = String.format("%03d", r);
+
+			int g = color.getGreen();
+			String G = String.format("%03d", g);
+
+			int b = color.getBlue();
+			String B = String.format("%03d", b);
+			String Pos = String.format("%02d", postition);
+
+			api.callMethod("led", Pos + R + G + B);
 		} catch (ParticleException e) {
 			e.printStackTrace();
 		}
