@@ -16,8 +16,7 @@ public class ClickSoundDemo {
 	
 	static IParticleApi api = new ParticleApi(new ButtonConnection());
 
-	public static boolean CountButtonPressed () {
-		Button bt = new Button(api);
+	public static boolean CountButtonPressed (Button bt) {
 		int countN = bt.getButtonClickCounter(IButton.ButtonDirection.North);
 		int countS = bt.getButtonClickCounter(IButton.ButtonDirection.South);
 		int countW = bt.getButtonClickCounter(IButton.ButtonDirection.West);
@@ -44,7 +43,7 @@ public class ClickSoundDemo {
 	        System.out.println("East"+bt.getButtonClickCounter(IButton.ButtonDirection.East));
 	        
 
-	        if(CountButtonPressed() == true) {
+	        if(CountButtonPressed(bt) == true) {
 	        	bt.playSound();
 	        }
 	        if(i<10) {
