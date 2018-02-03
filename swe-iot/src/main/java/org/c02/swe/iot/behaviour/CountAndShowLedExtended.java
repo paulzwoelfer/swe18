@@ -33,42 +33,51 @@ public class CountAndShowLedExtended extends AbstractBehaviour {
 		counter = 0;
 	}
 
+	public int DoubleLighter() {
+		try {
+			if (run) {
+				startup();
+			}
+			run = false;
+
+			int pos = CheckCountIfClick();
+			System.out.println(CheckCountIfClick() + "BitCode");
+			if (pos == 5) {
+				System.out.println("NORD_SUD klick");
+				counter++;
+				if (rgb == 250)
+					shutdown();
+				rgb = rgb + 10;
+
+				System.out.println("Value=" + rgb);
+				RaiseAllLeds(rgb);
+			}
+
+			if (pos == 10) {
+				System.out.println("West_OST klick");
+				counter++;
+				if (rgb == 250)
+					shutdown();
+				rgb = rgb + 10;
+				System.out.println("Value=" + rgb);
+				RaiseAllLeds(rgb);
+			}
+
+			if (pos != 0)
+				bt.resetButtonClickCounters();
+
+			if (counter == 25) {
+				rgb = 0;
+			}
+			return rgb;
+		} catch (Exception ex) {
+			return 0;
+		}
+	}
+
 	@Override
 	public void run() {
-		if (run) {
-			startup();
-		}
-		run = false;
-
-		int pos = CheckCountIfClick();
-		System.out.println(CheckCountIfClick() + "BitCode");
-		if (pos == 5) {
-			System.out.println("NORD_SUD klick");
-			counter++;
-			if (rgb == 250)
-				shutdown();
-			rgb = rgb + 10;
-
-			System.out.println("Value=" + rgb);
-			RaiseAllLeds(rgb);
-		}
-
-		if (pos == 10) {
-			System.out.println("West_OST klick");
-			counter++;
-			if (rgb == 250)
-				shutdown();
-			rgb = rgb + 10;
-			System.out.println("Value=" + rgb);
-			RaiseAllLeds(rgb);
-		}
-
-		if (pos != 0)
-			bt.resetButtonClickCounters();
-
-		if (counter == 25) {
-			rgb = 0;
-		}
+		DoubleLighter();
 	}
 
 	private static int CheckCountIfClick() {
