@@ -31,6 +31,10 @@ public class BehaviourTest {
 				Assert.assertEquals(5, postition);
 				Assert.assertEquals(Color.GREEN, color);
 			}
+			@Override
+			public void setLed(int postition, int red, int green, int blue) {
+				Assert.assertEquals(5, postition);
+			}
 
 			@Override
 			public void allLedsOff() {

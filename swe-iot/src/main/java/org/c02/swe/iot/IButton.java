@@ -18,6 +18,8 @@ public interface IButton {
 	void resetButtonClickCounters();
 	
 	void setLed(int postition, Color color);
+
+	void setLed(int postition, int red, int green, int blue);
 	
 	void allLedsOff();
 	

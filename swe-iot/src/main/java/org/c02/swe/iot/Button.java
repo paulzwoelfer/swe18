@@ -59,6 +59,22 @@ public class Button implements IButton {
 			e.printStackTrace();
 		}
 	}
+	public void setLed(int postition, int red, int green, int blue) {
+		try {
+
+
+			String R = String.format("%03d", red);
+
+			String G = String.format("%03d", green);
+
+			String B = String.format("%03d", blue);
+			String Pos = String.format("%02d", postition);
+
+			api.callMethod("led", Pos + R + G + B);
+		} catch (ParticleException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void allLedsOff() {
 		try {
@@ -101,8 +117,7 @@ public class Button implements IButton {
 		int gyro = 0;
 		try {
 			gyro = api.readVariable(direction.name() + "Value");
-			System.out.println(direction.name() + "Value");
-			System.out.println("acceleration: " + gyro);
+			System.out.println(direction.name() + "Value" + " gyro: " + gyro);
 
 /*			System.out.println("x: " + api.readVariable("xValue"));
 			System.out.println("y: " + api.readVariable("yValue"));
