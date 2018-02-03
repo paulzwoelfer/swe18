@@ -81,11 +81,7 @@ public class CountAndShowLedExtended extends AbstractBehaviour {
 	}
 
 	private static int CheckCountIfClick() {
-		int n;
-		int s;
-		int e;
-		int w;
-		int ret = 0;
+		int n, s, e, w, ret = 0;
 
 		try {
 
@@ -96,13 +92,10 @@ public class CountAndShowLedExtended extends AbstractBehaviour {
 
 			if (n > 1)
 				ret = ret + 1;
-
 			if (e > 1)
 				ret = ret + 2;
-
 			if (s > 1)
 				ret = ret + 4;
-
 			if (w > 1)
 				ret = ret + 8;
 
@@ -124,16 +117,12 @@ public class CountAndShowLedExtended extends AbstractBehaviour {
 
 	private void RaiseAllLeds(int value) {
 		try {
-			Color cl = Color.black;
-			int r = cl.getRed();
-			int g = cl.getGreen();
-			int b = cl.getBlue();
-
-			Color color = new Color(r + value, g, b);
+			Color color = new Color(Color.black.getRed() + value, Color.black.getGreen(), Color.black.getBlue());
 
 			for (int i = 0; i < 12; i++) {
 				button.setLed(i, color);
 			}
+
 		} catch (Exception ex) {
 			System.out.println(ex.toString());
 		}
@@ -156,7 +145,6 @@ public class CountAndShowLedExtended extends AbstractBehaviour {
 				bt.allLedsOff();
 				break;
 			}
-
 		}
 	}
 }
