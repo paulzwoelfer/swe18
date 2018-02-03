@@ -1,6 +1,9 @@
 package org.c02.swe.iot;
 
 import java.awt.Color;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.c02.swe.iot.cloud.api.IParticleApi;
 import org.c02.swe.iot.cloud.api.ParticleApi;
@@ -17,6 +20,15 @@ public class Button implements IButton {
 
 	public int getButtonClickCounter(ButtonDirection button) {
 		// TODO Auto-generated method stub
+            
+                  try {
+                        if(button==ButtonDirection.North){
+                      api.readVariable("countButton1");
+                        }
+                  } catch (IOException ex) {
+                      Logger.getLogger(Button.class.getName()).log(Level.SEVERE, null, ex);
+                  }
+              
 		return 0;
 	}
 
