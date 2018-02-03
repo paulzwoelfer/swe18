@@ -16,11 +16,16 @@ import org.c02.swe.iot.cloud.api.ParticleApi;
  * @author joshke
  */
 public class ButtonCounterDemo {
-     static IParticleApi api = new ParticleApi(new ButtonConnection());
+
+    static IParticleApi api = new ParticleApi(new ButtonConnection());
 
     public static void main(String[] args) {
         Button bt = new Button(api);
-        int count=bt.getButtonClickCounter(IButton.ButtonDirection.North);
-        System.out.println(count);
+        System.out.println("Nort"+bt.getButtonClickCounter(IButton.ButtonDirection.North));
+        System.out.println("South"+bt.getButtonClickCounter(IButton.ButtonDirection.South));
+        System.out.println("West"+bt.getButtonClickCounter(IButton.ButtonDirection.West));
+        System.out.println("East"+bt.getButtonClickCounter(IButton.ButtonDirection.East));
+        
+        bt.resetButtonClickCounters();
     }
 }

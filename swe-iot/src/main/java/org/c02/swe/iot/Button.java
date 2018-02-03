@@ -18,13 +18,22 @@ public class Button implements IButton {
 		wrapper = wrapperInstance;
 	}
 
+        @Override
 	public int getButtonClickCounter(ButtonDirection button) {
-		// TODO Auto-generated method stub
-            
-                  try {
+		   try {
                         if(button==ButtonDirection.North){
-                      api.readVariable("countButton1");
+                         return api.readVariable("countButton1");
                         }
+                         if(button==ButtonDirection.East){
+                         return api.readVariable("countButton2");
+                        }
+                          if(button==ButtonDirection.West){
+                         return api.readVariable("countButton4");
+                        }
+                           if(button==ButtonDirection.South){
+                         return api.readVariable("countButton3");
+                        }
+                        
                   } catch (IOException ex) {
                       Logger.getLogger(Button.class.getName()).log(Level.SEVERE, null, ex);
                   }
@@ -69,7 +78,11 @@ public class Button implements IButton {
 	}
 
 	public void resetButtonClickCounters() {
-		// TODO Auto-generated method stub
+		try {
+			api.callMethod("reset", null);
+		} catch (ParticleException e) {
+			e.printStackTrace();
+		}
 
 	}
 
