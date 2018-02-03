@@ -32,9 +32,9 @@ public class ClickSoundDemo {
 		return false;
 	}
 	
-	public  void PlaySound () {
+	public  void PlaySound (Button bt) {
 		try {
-			Button bt = new Button(api);
+			
 			for(int i = 0; i<=10;	i++ ) {
 			
 			
@@ -64,8 +64,9 @@ public class ClickSoundDemo {
 	}
 	
 	public static void main(String[] args) {
+		Button bt = new Button(api);
 		ClickSoundDemo cs = new ClickSoundDemo();
-		cs.PlaySound();
+		cs.PlaySound(bt);
 		
     }
 }
