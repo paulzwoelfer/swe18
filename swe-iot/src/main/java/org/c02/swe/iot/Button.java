@@ -3,10 +3,13 @@ package org.c02.swe.iot;
 import java.awt.Color;
 
 import org.c02.swe.iot.cloud.api.IParticleApi;
+import org.c02.swe.iot.cloud.api.ParticleApi;
+import org.c02.swe.iot.cloud.api.ParticleException;
 
 public class Button implements IButton {
 
 	IParticleApi wrapper;
+	static IParticleApi api = new ParticleApi(new ButtonConnection());
 
 	public Button(IParticleApi wrapperInstance) {
 		wrapper = wrapperInstance;
@@ -27,7 +30,11 @@ public class Button implements IButton {
 	}
 
 	public void playSound() {
-		// TODO Auto-generated method stub
+		try {
+			api.callMethod("play", null);
+		} catch (ParticleException e) {
+			e.printStackTrace();
+		}
 
 	}
 
