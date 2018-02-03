@@ -2,6 +2,8 @@ package org.c02.swe.iot;
 
 import java.awt.Color;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.c02.swe.iot.cloud.api.IParticleApi;
 import org.c02.swe.iot.cloud.api.ParticleApi;
@@ -16,14 +18,27 @@ public class Button implements IButton {
 		wrapper = wrapperInstance;
 	}
 
+        @Override
 	public int getButtonClickCounter(ButtonDirection button) {
-		int counter = -1;
-		try {
-			counter = api.readVariable("countButton" + getButtonDirectionToInt(button));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return counter;
+	   try {
+					if(button==ButtonDirection.North){
+					 return api.readVariable("countButton1");
+					}
+					 if(button==ButtonDirection.East){
+					 return api.readVariable("countButton2");
+					}
+					  if(button==ButtonDirection.West){
+					 return api.readVariable("countButton4");
+					}
+					   if(button==ButtonDirection.South){
+					 return api.readVariable("countButton3");
+					}
+
+			  } catch (IOException ex) {
+				  Logger.getLogger(Button.class.getName()).log(Level.SEVERE, null, ex);
+			  }
+
+	return 0;
 	}
 
 	public void setLed(int postition, Color color) {
@@ -63,7 +78,11 @@ public class Button implements IButton {
 	}
 
 	public void resetButtonClickCounters() {
-		// TODO Auto-generated method stub
+		try {
+			api.callMethod("reset", null);
+		} catch (ParticleException e) {
+			e.printStackTrace();
+		}
 
 	}
 

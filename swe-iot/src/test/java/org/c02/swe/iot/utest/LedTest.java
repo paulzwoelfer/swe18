@@ -7,6 +7,7 @@ import java.awt.Color;
 
 import org.c02.swe.iot.Button;
 import org.c02.swe.iot.IButton;
+import org.c02.swe.iot.behaviour.CountAndShowLed;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,6 +15,7 @@ public class LedTest {
 
 	Button moqBtn = mock(Button.class);
 	IButton buttonInstance = null;
+	CountAndShowLed countAndShowLed = null;
 
 	@Before
 	public void setUp() throws Exception {
@@ -46,4 +48,9 @@ public class LedTest {
 		}
 	}
 
+	@Test
+	public void runCountAndShowLed() {
+		countAndShowLed = new CountAndShowLed(buttonInstance);
+		countAndShowLed.run();
+	}
 }
