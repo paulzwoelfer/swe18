@@ -27,12 +27,19 @@ public class Button implements IButton {
 	}
 
 	public void setLed(int postition, Color color) {
-		// TODO Auto-generated method stub
+		try {
+			api.callMethod("led", postition + color.toString());
+		} catch (ParticleException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void allLedsOff() {
-		// TODO Auto-generated method stub
-
+		try {
+			api.callMethod("ledsOff", null);
+		} catch (ParticleException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void playSound() {
@@ -46,7 +53,7 @@ public class Button implements IButton {
 
 	public void resetButtonClickCounters() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static int getButtonDirectionToInt (ButtonDirection buttonDirection) {

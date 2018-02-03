@@ -1,4 +1,7 @@
 *.iml
+.project
+.classpath
+swe-iot/target/*
 
 # Compiled class file
 *.class
