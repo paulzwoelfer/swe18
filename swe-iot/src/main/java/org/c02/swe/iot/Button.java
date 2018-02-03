@@ -15,7 +15,7 @@ public class Button implements IButton {
 	static IParticleApi api = new ParticleApi(new ButtonConnection());
 
 	public Button(IParticleApi wrapperInstance) {
-		wrapper = wrapperInstance;
+		api = wrapperInstance;
 	}
 
         @Override
