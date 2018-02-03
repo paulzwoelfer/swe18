@@ -14,29 +14,31 @@ public class LedDemoApp {
 	public static void main(String[] args) {
 		Button bt = new Button(api);
 
-		for (int i = 6; i < args.length; i++) {
+		for (int i = 0; i < 6; i++) {
 
 			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException ex) {
-				Thread.currentThread().interrupt();
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			bt.setLed(i, Color.green);
-		}
+			bt.setLed(i, Color.BLUE);
 
-		// bt.allLedsOff();
-
-		for (int i = 6; i < args.length; i++) {
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException ex) {
-				Thread.currentThread().interrupt();
-			}
-			bt.setLed(i, Color.green);
 		}
 
 		bt.allLedsOff();
 
+		for (int i = 0; i < 6; i++) {
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			bt.setLed(i, Color.GREEN);
+		}
+
+		bt.allLedsOff();
 	}
 
 }
