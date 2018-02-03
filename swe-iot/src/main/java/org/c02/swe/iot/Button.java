@@ -75,6 +75,21 @@ public class Button implements IButton {
 			e.printStackTrace();
 		}
 	}
+	public void ledcorner(String leds, Color color) {
+		try {
+			int r = color.getRed();
+			String R = String.format("%03d", r);
+
+			int g = color.getGreen();
+			String G = String.format("%03d", g);
+
+			int b = color.getBlue();
+			String B = String.format("%03d", b);
+			api.callMethod("ledcorner", leds+R+G+B);
+		} catch (ParticleException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void allLedsOff() {
 		try {
